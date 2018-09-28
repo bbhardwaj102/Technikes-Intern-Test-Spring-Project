@@ -1,0 +1,139 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.1
+-- Dumped by pg_dump version 10.1
+
+-- Started on 2018-09-28 12:53:56
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 1 (class 3079 OID 12924)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2805 (class 0 OID 0)
+-- Dependencies: 1
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 197 (class 1259 OID 90186)
+-- Name: myproduct; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE myproduct (
+    pid bigint NOT NULL,
+    category character varying(255),
+    name character varying(255),
+    price integer,
+    quantity integer,
+    taxrate integer
+);
+
+
+ALTER TABLE myproduct OWNER TO postgres;
+
+--
+-- TOC entry 198 (class 1259 OID 90194)
+-- Name: myproduct_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE myproduct_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE myproduct_seq OWNER TO postgres;
+
+--
+-- TOC entry 196 (class 1259 OID 90184)
+-- Name: product_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE product_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE product_seq OWNER TO postgres;
+
+--
+-- TOC entry 2797 (class 0 OID 90186)
+-- Dependencies: 197
+-- Data for Name: myproduct; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO myproduct (pid, category, name, price, quantity, taxrate) VALUES (2, 'TV', 'Samsung TV', 40000, 3, 3);
+INSERT INTO myproduct (pid, category, name, price, quantity, taxrate) VALUES (1, 'Mobile', 'Redme Pro', 20000, 2, 2);
+INSERT INTO myproduct (pid, category, name, price, quantity, taxrate) VALUES (4, 'Mobile', 'Samsung Galaxy', 50000, 2, 2);
+INSERT INTO myproduct (pid, category, name, price, quantity, taxrate) VALUES (3, 'Mobile', 'Micromax', 7000, 4, 1);
+INSERT INTO myproduct (pid, category, name, price, quantity, taxrate) VALUES (6, 'Laptop', 'Acer Laptop', 30000, 4, 1);
+INSERT INTO myproduct (pid, category, name, price, quantity, taxrate) VALUES (5, 'PC', 'Lenevo Laptop', 60000, 3, 3);
+INSERT INTO myproduct (pid, category, name, price, quantity, taxrate) VALUES (8, 'AC', 'Mitsubishi AC', 40000, 3, 3);
+INSERT INTO myproduct (pid, category, name, price, quantity, taxrate) VALUES (7, 'Laptop', 'Dell Laptop', 45000, 2, 2);
+INSERT INTO myproduct (pid, category, name, price, quantity, taxrate) VALUES (10, 'TV', 'LG TV', 36000, 1, 2);
+INSERT INTO myproduct (pid, category, name, price, quantity, taxrate) VALUES (9, 'TV', 'Onida TV', 35000, 4, 1);
+
+
+--
+-- TOC entry 2806 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: myproduct_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('myproduct_seq', 1, false);
+
+
+--
+-- TOC entry 2807 (class 0 OID 0)
+-- Dependencies: 196
+-- Name: product_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('product_seq', 1, false);
+
+
+--
+-- TOC entry 2674 (class 2606 OID 90193)
+-- Name: myproduct myproduct_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY myproduct
+    ADD CONSTRAINT myproduct_pkey PRIMARY KEY (pid);
+
+
+-- Completed on 2018-09-28 12:53:56
+
+--
+-- PostgreSQL database dump complete
+--
+
